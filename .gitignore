@@ -1,0 +1,9 @@
+jpa-hibernate-spring-jsf/.metadata
+jpa-hibernate-spring-jsf/.settings
+jpa-hibernate-spring-jsf/.classpath
+jpa-hibernate-spring-jsf/.project
+jpa-hibernate-spring-jsf/target
+*.class
+*.war
+*.ear
+*.log
