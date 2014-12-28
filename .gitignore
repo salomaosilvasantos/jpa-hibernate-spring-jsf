@@ -7,3 +7,4 @@ jpa-hibernate-spring-jsf/target
 *.war
 *.ear
 *.log
+/target/
