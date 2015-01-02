@@ -21,32 +21,36 @@ public class GenericRepositoryImpl<T> implements GenericRepository<T>,
 	@PersistenceContext
 	private EntityManager em;
 
+	@Override
 	@Transactional
 	public void salvar(T entity) {
 		em.persist(entity);
 
 	}
 
+	@Override
 	@Transactional
 	public T buscarPorID(Class<T> entidadeClasse, Object id) {
 
 		return em.find(entidadeClasse, id);
 	}
 
+	@Override
 	@Transactional
 	public T editar(T entity) {
 		return em.merge(entity);
 	}
 
-	public List<T> listar(Class<T> entidadeClass) {
+	public List<T> listar(Class<T> entidadeClasse) {
 		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-		cq.select(cq.from(entidadeClass));
+		cq.select(cq.from(entidadeClasse));
 		return em.createQuery(cq).getResultList();
 	}
 
+	@Override
 	@Transactional
 	public void deletar(T entidade) {
-		em.remove(entidade);
+		em.remove(em.merge(entidade));
 
 	}
 
